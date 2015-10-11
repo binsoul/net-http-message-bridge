@@ -19,8 +19,8 @@
     "require": {
         "php": ">=5.6.0",
         "psr/http-message": "~1.0",
-        "binsoul/io-stream": "dev-master",
-        "binsoul/net": "dev-master"
+        "binsoul/io-stream": "~1.0@dev",
+        "binsoul/net": "~1.0@dev"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.0",
@@ -40,5 +40,10 @@
         "test": "phpunit",
         "fix-src": "php-cs-fixer fix -v src",
         "fix-tests": "php-cs-fixer fix -v tests"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
     }
 }
