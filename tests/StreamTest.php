@@ -12,7 +12,7 @@ class StreamTest extends \PHPUnit_Framework_TestCase
 {
     public function test_creates_correct_access_mode()
     {
-        $stream = new Stream(new MemoryStream('memory'), 'r');
+        $stream = new Stream(new MemoryStream(), 'r');
 
         $this->assertTrue($stream->isReadable());
         $this->assertFalse($stream->isWritable());
@@ -21,7 +21,7 @@ class StreamTest extends \PHPUnit_Framework_TestCase
 
     public function test_is_readable_and_writable()
     {
-        $stream = new Stream(new MemoryStream('memory'), 'r+');
+        $stream = new Stream(new MemoryStream(), 'r+');
         $stream->write('foo');
 
         $this->assertEquals(3, $stream->tell());
@@ -109,7 +109,7 @@ class StreamTest extends \PHPUnit_Framework_TestCase
 
     public function test_toString_returns_entire_content()
     {
-        $stream = new Stream(new MemoryStream('memory'), 'r+');
+        $stream = new Stream(new MemoryStream(), 'r+');
         $stream->write('foo');
 
         $this->assertEquals(3, $stream->tell());
@@ -128,7 +128,7 @@ class StreamTest extends \PHPUnit_Framework_TestCase
 
     public function test_getContents_returns_remaining_content()
     {
-        $stream = new Stream(new MemoryStream('memory'), 'r+');
+        $stream = new Stream(new MemoryStream(), 'r+');
         $stream->write('foobar');
         $stream->seek(3);
 
@@ -140,7 +140,7 @@ class StreamTest extends \PHPUnit_Framework_TestCase
         $stream = new Stream(new ResourceStream('php://memory'), 'r');
         $this->assertInternalType('resource', $stream->detach());
 
-        $stream = new Stream(new MemoryStream('memory'), 'r');
+        $stream = new Stream(new MemoryStream(), 'r');
         $this->assertNull($stream->detach());
     }
 
@@ -164,7 +164,7 @@ class StreamTest extends \PHPUnit_Framework_TestCase
      */
     public function test_detach_makes_stream_unusable($method)
     {
-        $stream = new Stream(new MemoryStream('memory'), 'r+');
+        $stream = new Stream(new MemoryStream(), 'r+');
         $stream->detach();
 
         $stream->{$method}(1);
