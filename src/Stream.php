@@ -12,7 +12,7 @@ use Psr\Http\Message\StreamInterface;
 class Stream implements StreamInterface
 {
     /** @var IoStream */
-    private $stream;
+    protected $stream;
 
     /**
      * Constructs an instance of this class.
