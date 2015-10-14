@@ -19,6 +19,10 @@ class DefaultStreamFactory implements StreamFactory
                 $stream = new PhpInputStream();
 
                 break;
+            case 'php://output':
+                $stream = new PhpOutputStream();
+
+                break;
             case 'php://memory':
                 $stream = new PhpMemoryStream();
 
