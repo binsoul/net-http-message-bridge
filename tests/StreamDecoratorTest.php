@@ -10,11 +10,6 @@ use Psr\Http\Message\StreamInterface;
 class StreamDecoratorImplementation implements StreamInterface
 {
     use StreamDecorator;
-
-    public function __construct($decoratedStream)
-    {
-        $this->decorated = $decoratedStream;
-    }
 }
 
 class StreamDecoratorTest extends AbstractStreamTest

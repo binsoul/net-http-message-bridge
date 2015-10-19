@@ -2,88 +2,88 @@
 
 namespace BinSoul\Bridge\Http\Message;
 
-use Psr\Http\Message\StreamInterface;
+use BinSoul\Common\Decorator;
 
 /**
- * Implements the StreamInterface interface and delegates all methods to the decorated stream.
+ * Implements the {@see \Psr\Http\Message\StreamInterface StreamInterface} interface and delegates
+ * all methods to the decorated stream.
  */
 trait StreamDecorator
 {
-    /** @var StreamInterface */
-    protected $decorated;
+    use Decorator;
 
     public function __toString()
     {
-        return $this->decorated->__toString();
+        return $this->decoratedObject->__toString();
     }
 
     public function detach()
     {
-        return $this->decorated->detach();
+        return $this->decoratedObject->detach();
     }
 
     public function close()
     {
-        $this->decorated->close();
+        $this->decoratedObject->close();
     }
 
     public function read($length)
     {
-        return $this->decorated->read($length);
+        return $this->decoratedObject->read($length);
     }
 
     public function getContents()
     {
-        return $this->decorated->getContents();
+        return $this->decoratedObject->getContents();
     }
 
     public function write($string)
     {
-        return $this->decorated->write($string);
+        return $this->decoratedObject->write($string);
     }
 
     public function seek($offset, $whence = SEEK_SET)
     {
-        return $this->decorated->seek($offset, $whence);
+        return $this->decoratedObject->seek($offset, $whence);
     }
 
     public function rewind()
     {
-        return $this->decorated->rewind();
+        return $this->decoratedObject->rewind();
     }
 
     public function tell()
     {
-        return $this->decorated->tell();
+        return $this->decoratedObject->tell();
     }
 
     public function eof()
     {
-        return $this->decorated->eof();
+        return $this->decoratedObject->eof();
     }
 
     public function isSeekable()
     {
-        return $this->decorated->isSeekable();
+        return $this->decoratedObject->isSeekable();
     }
 
     public function isWritable()
     {
-        return $this->decorated->isWritable();
+        return $this->decoratedObject->isWritable();
     }
 
     public function isReadable()
     {
-        return $this->decorated->isReadable();
+        return $this->decoratedObject->isReadable();
     }
 
     public function getSize()
     {
-        return $this->decorated->getSize();
+        return $this->decoratedObject->getSize();
     }
 
     public function getMetadata($key = null)
     {
-        return $this->decorated->getMetadata($key);
+        return $this->decoratedObject->getMetadata($key);
     }
 }

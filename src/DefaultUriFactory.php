@@ -3,7 +3,7 @@
 namespace BinSoul\Bridge\Http\Message;
 
 /**
- * Builds instances of the Uri class.
+ * Builds instances of the {@see Uri} class.
  */
 class DefaultUriFactory implements UriFactory
 {
