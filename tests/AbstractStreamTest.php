@@ -2,7 +2,6 @@
 
 namespace BinSoul\Test\Bridge\Http\Message;
 
-use BinSoul\Bridge\Http\Message\Stream;
 use BinSoul\IO\Stream\Stream as IoStream;
 use BinSoul\IO\Stream\Type\MemoryStream;
 use BinSoul\IO\Stream\Type\ResourceStream;

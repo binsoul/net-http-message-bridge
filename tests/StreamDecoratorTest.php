@@ -14,7 +14,6 @@ class StreamDecoratorImplementation implements StreamInterface
 
 class StreamDecoratorTest extends AbstractStreamTest
 {
-
     protected function createStream(IoStream $stream, $accessMode)
     {
         return new StreamDecoratorImplementation(new Stream($stream, $accessMode));
