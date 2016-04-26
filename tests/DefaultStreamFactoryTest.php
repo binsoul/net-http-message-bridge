@@ -41,5 +41,8 @@ class DefaultStreamFactoryTest extends \PHPUnit_Framework_TestCase
 
         $stream = $factory->build('php://input', 'r');
         $this->assertEquals('php://input', $stream->getMetadata('uri'));
+
+        $stream = $factory->build('php://output', 'w');
+        $this->assertEquals('php://output', $stream->getMetadata('uri'));
     }
 }

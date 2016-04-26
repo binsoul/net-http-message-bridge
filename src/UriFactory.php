@@ -1,5 +1,7 @@
 <?php
 
+declare (strict_types = 1);
+
 namespace BinSoul\Bridge\Http\Message;
 
 use Psr\Http\Message\UriInterface;
@@ -16,5 +18,5 @@ interface UriFactory
      *
      * @return UriInterface
      */
-    public function build($uri);
+    public function build(string $uri): UriInterface;
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare (strict_types = 1);
+
 namespace BinSoul\Bridge\Http\Message;
 
 use Psr\Http\Message\StreamInterface;
@@ -17,5 +19,5 @@ interface StreamFactory
      *
      * @return StreamInterface
      */
-    public function build($uri, $mode);
+    public function build(string $uri, string $mode): StreamInterface;
 }

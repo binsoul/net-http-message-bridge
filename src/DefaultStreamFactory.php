@@ -1,18 +1,22 @@
 <?php
 
+declare (strict_types = 1);
+
 namespace BinSoul\Bridge\Http\Message;
 
 use BinSoul\IO\Stream\Type\PhpInputStream;
 use BinSoul\IO\Stream\Type\PhpMemoryStream;
+use BinSoul\IO\Stream\Type\PhpOutputStream;
 use BinSoul\IO\Stream\Type\PhpTempStream;
 use BinSoul\IO\Stream\Type\ResourceStream;
+use Psr\Http\Message\StreamInterface;
 
 /**
  * Builds instances of the Stream class.
  */
 class DefaultStreamFactory implements StreamFactory
 {
-    public function build($uri, $mode)
+    public function build(string $uri, string $mode): StreamInterface
     {
         switch (strtolower($uri)) {
             case 'php://input':

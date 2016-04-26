@@ -1,5 +1,7 @@
 <?php
 
+declare (strict_types = 1);
+
 namespace BinSoul\Bridge\Http\Message;
 
 use BinSoul\IO\Stream\AccessMode;
@@ -7,7 +9,7 @@ use BinSoul\IO\Stream\Stream as IoStream;
 use Psr\Http\Message\StreamInterface;
 
 /**
- * Decorates an IO\Stream to implement the PSR-7 StreamInterface.
+ * Decorates the {@see \BinSoul\IO\Stream\Stream IO\Stream} class to implement the PSR-7 StreamInterface.
  */
 class Stream implements StreamInterface
 {
@@ -20,7 +22,7 @@ class Stream implements StreamInterface
      * @param IoStream $stream
      * @param string   $mode   desired access mode
      */
-    public function __construct(IoStream $stream, $mode)
+    public function __construct(IoStream $stream, string $mode)
     {
         $stream->open(new AccessMode($mode));
 
